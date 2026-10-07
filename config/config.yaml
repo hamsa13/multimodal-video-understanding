@@ -1,0 +1,131 @@
+# ============================================
+# Video Scene Understanding - Configuration
+# ============================================
+
+# General Settings
+general:
+  output_dir: "outputs"
+  temp_dir: "temp"
+  log_level: "INFO"
+  device: "cuda"  # cuda, cpu, or auto
+  max_workers: 4
+
+# Video Processing
+video:
+  frame_extraction:
+    fps: 1  # Frames per second to extract
+    max_frames: 1000
+    output_format: "jpg"
+    quality: 95
+  
+  audio_extraction:
+    sample_rate: 16000
+    channels: 1
+    format: "wav"
+
+# Speech Recognition (Whisper)
+speech:
+  model: "base"  # tiny, base, small, medium, large
+  language: null  # null for auto-detect
+  task: "transcribe"
+  beam_size: 5
+  word_timestamps: true
+  use_faster_whisper: true
+
+# Speaker Diarization (Pyannote)
+diarization:
+  enabled: true
+  min_speakers: 1
+  max_speakers: 10
+  huggingface_token: ""  # Required for pyannote
+
+# Face Detection & Recognition
+face:
+  detection:
+    model: "mtcnn"  # mtcnn, dlib, retinaface
+    confidence_threshold: 0.9
+    min_face_size: 50
+  
+  recognition:
+    model: "VGG-Face"  # VGG-Face, Facenet, ArcFace
+    distance_metric: "cosine"
+    threshold: 0.6
+    known_faces_dir: "known_faces"
+  
+  embedding:
+    store_type: "chromadb"  # chromadb, faiss
+    collection_name: "face_embeddings"
+
+# Scene Detection
+scene:
+  detector: "content"  # content, threshold, adaptive
+  threshold: 30.0
+  min_scene_length: 15  # frames
+
+# Object Detection (YOLO)
+object_detection:
+  model: "yolov8n.pt"  # yolov8n, yolov8s, yolov8m, yolov8l, yolov8x
+  confidence: 0.5
+  iou_threshold: 0.45
+  classes: null  # null for all classes
+  track_objects: true
+
+# Action Recognition
+action:
+  model: "slowfast"  # slowfast, i3d, video_swin
+  clip_length: 32  # frames per clip
+  sampling_rate: 2
+  top_k: 5
+  threshold: 0.3
+
+# Background/Environment Detection
+environment:
+  enabled: true
+  model: "places365"
+  top_k: 3
+
+# Multimodal Fusion
+fusion:
+  strategy: "temporal"  # temporal, attention, simple
+  window_size: 5  # seconds
+  overlap: 0.5
+
+# LLM Text Generation (FREE Hugging Face models - runs locally)
+llm:
+  provider: "huggingface"
+  model: "google/flan-t5-base"  # FREE text generation
+  vision_model: "Salesforce/blip-image-captioning-base"  # FREE image captioning
+  temperature: 0.7
+  max_tokens: 512
+  
+  prompts:
+    story_generation: |
+      Convert this scene data into cinematic prose.
+      Describe setting, characters, actions vividly.
+    
+    dialogue_enhancement: |
+      Format this dialogue as a screenplay with emotions.
+    
+    scene_summary: |
+      Summarize this scene in 2 sentences.
+
+# Output Formats
+output:
+  formats:
+    - json
+    - txt
+    - srt
+    - vtt
+  
+  include:
+    timestamps: true
+    confidence_scores: true
+    raw_data: false
+    visualizations: true
+
+# Web Interface
+web:
+  host: "0.0.0.0"
+  port: 7860
+  share: false
+  auth: null  # [username, password] or null

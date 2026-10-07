@@ -1,0 +1,103 @@
+# ==============================
+# Python cache
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==============================
+# Virtual environments
+# ==============================
+venv/
+env/
+video_ai_env/
+.venv/
+
+# ==============================
+# Distribution / packaging
+# ==============================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ==============================
+# Logs
+# ==============================
+*.log
+
+# ==============================
+# Jupyter
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# VS Code / IDE
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# Environment variables / secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# Model weights
+# ==============================
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.bin
+*.safetensors
+
+# ==============================
+# Dataset / media files
+# ==============================
+data/
+datasets/
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.flac
+
+# ==============================
+# Generated video processing outputs
+# ==============================
+always1/
+got/
+mb/
+vk/
+outputs/
+results/
+test-outputs/
+
+# ==============================
+# Generated frames / thumbnails
+# ==============================
+*.jpg
+*.jpeg
+*.png
+
+# ==============================
+# Generated subtitle / output files
+# ==============================
+*.srt
+
+# ==============================
+# Local runtime files
+# ==============================
+.web_app.pid
+
+# ==============================
+# System files
+# ==============================
+.DS_Store
+Thumbs.db

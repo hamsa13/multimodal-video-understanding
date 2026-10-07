@@ -1,0 +1,47 @@
+# Video Scene Understanding - Minimal Dependencies
+# Only essential packages - ALL FREE models
+
+# Core
+numpy
+opencv-python
+pillow
+tqdm
+
+# Config & CLI
+pyyaml
+python-dotenv
+click
+rich
+
+# Video/Audio Processing
+ffmpeg-python
+moviepy
+
+# Speech Recognition (FREE - runs locally)
+faster-whisper
+
+# Scene Detection
+scenedetect[opencv]
+
+# Object Detection (FREE - YOLOv8)
+ultralytics
+
+# LLM - FREE Hugging Face models
+transformers
+accelerate
+sentencepiece
+
+# Groq LLM API
+groq
+
+# Web Interface
+gradio
+
+# Entity tracking
+networkx
+
+# Visualization for GNN graphs
+matplotlib
+
+# Text-to-speech for converting outputs to audio
+gTTS
