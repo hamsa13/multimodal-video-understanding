@@ -2,7 +2,6 @@
 
 An end-to-end multimodal AI pipeline that transforms raw videos into structured, timestamped information by combining speech, speaker, scene, object, and action understanding.
 
-Built as part of the **CRRAO Internal Hackathon 2026**.
 
 ---
 
